@@ -1,7 +1,7 @@
 package ru.vsu.cs.sis.oop_task4;
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.Objects;
 
 public class Passport {
     private Person holder;
@@ -42,5 +42,18 @@ public class Passport {
 
     public String getLocation() {
         return location;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Passport passport = (Passport) o;
+        return Objects.equals(series, passport.series) && Objects.equals(number, passport.number) && Objects.equals(dateOfIssue, passport.dateOfIssue);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(series, number, dateOfIssue);
     }
 }
