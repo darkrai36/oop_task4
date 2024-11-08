@@ -49,7 +49,8 @@ public class Passport {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Passport passport = (Passport) o;
-        return Objects.equals(series, passport.series) && Objects.equals(number, passport.number) && Objects.equals(dateOfIssue, passport.dateOfIssue);
+        return Objects.equals(series, passport.series) && Objects.equals(number, passport.number) &&
+                Objects.equals(dateOfIssue, passport.dateOfIssue) && Objects.equals(location, passport.getLocation());
     }
 
     @Override
