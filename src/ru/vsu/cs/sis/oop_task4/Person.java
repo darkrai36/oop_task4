@@ -1,7 +1,7 @@
 package ru.vsu.cs.sis.oop_task4;
 
 import java.time.LocalDate;
-import java.time.Year;
+import java.time.Period;
 
 public class Person {
     private String name;
@@ -16,7 +16,9 @@ public class Person {
         this.name = name;
         this.surname = surname;
         this.birthday = birthday;
-        this.age = LocalDate.now().getYear() - birthday.getYear();
+        if (birthday != null) {
+            this.age = Period.between(birthday, LocalDate.now()).getYears();
+        } else throw new IllegalArgumentException("Дня рождения нет, надо бы его ввести.");
         this.gender = gender;
         this.birthPlace = birthPlace;
         this.location = location;
