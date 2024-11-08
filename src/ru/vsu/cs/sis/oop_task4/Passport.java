@@ -8,12 +8,16 @@ public class Passport {
     private String series;
     private String number;
     private LocalDate dateOfIssue;
+    private String birthPlace;
+    private String location;
 
     public Passport(Person holder, String series, String number, LocalDate dateOfIssue) {
         this.holder = holder;
         this.series = series;
         this.number = number;
         this.dateOfIssue = dateOfIssue;
+        this.birthPlace = holder.getBirthPlace();
+        this.location = holder.getLocation();
     }
 
     public Person getHolder() {
@@ -30,5 +34,13 @@ public class Passport {
 
     public LocalDate getDateOfIssue() {
         return dateOfIssue;
+    }
+
+    public String getBirthPlace() {
+        return birthPlace;
+    }
+
+    public String getLocation() {
+        return location;
     }
 }
